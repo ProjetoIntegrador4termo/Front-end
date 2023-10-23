@@ -59,26 +59,30 @@ function Registro() {
             </div>
             <div className="login-form-group">
               <Field
-                name="password" 
+                type="password"
+                name="password"
                 className="form-field"
                 placeholder="Senha"
               />
 
               <ErrorMessage
+                type="password"
                 component="span"
-                name="password" 
+                name="password"
                 className="form-error"
               />
             </div>
 
             <div className="login-form-group">
               <Field
+                type="password"
                 name="confirmaSenha"
                 className="form-field"
                 placeholder="Confirme sua senha"
               />
 
               <ErrorMessage
+                type="password"
                 component="span"
                 name="confirmaSenha"
                 className="form-error"

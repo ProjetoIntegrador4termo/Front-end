@@ -2,6 +2,7 @@ import React, { useState, useContext } from "react";
 import axios from "axios";
 import { useHistory } from "react-router-dom";
 import { AuthContext } from "../helpers/AuthContext";
+import { Link } from "react-router-dom/cjs/react-router-dom.min";
 
 function Login() {
   const [username, setUsername] = useState("");
@@ -46,8 +47,10 @@ function Login() {
             setPassword(event.target.value);
           }}
         />
-
-        <button className="button" onClick={login}> Login </button>
+        <div className="div-bottom">
+          <button className="button" onClick={login}> Login </button>
+          <Link className="linkcria" to="/cadastro">Não tem uma conta? Crie aqui</Link>
+        </div>
       </div>
     </div>
   );

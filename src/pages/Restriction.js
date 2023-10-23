@@ -4,19 +4,29 @@ import axios from "axios";
 import { useHistory } from "react-router-dom";
 
 function Restriction() {
+    const initialValues = {
+        name: "",
+        restriction: "",
+        series: "",
+    };
+
     const history = useHistory();
 
-    const initialValues = {
-      name: "",
-      restriction: "",
-      series: "",
-    };
-  
     const onSubmit = (data) => {
-        axios.post("http://localhost:3001/aluno", data).then(() => {
-          history.push("/");
-        });
-      };
+        axios.post("http://localhost:3001/aluno", data, {
+            headers: {
+                accessToken: localStorage.getItem("accessToken"),
+            },
+        })
+            .then((response) => {
+                if (response.data.message === "Aluno criado com sucesso") {
+                    history.push("/"); 
+                }
+            })
+            .catch((error) => {
+                console.error("Erro ao enviar dados:", error);
+            });
+    };
 
     return (
         <div className="divContainer">
