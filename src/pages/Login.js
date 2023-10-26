@@ -13,7 +13,7 @@ function Login() {
 
   const login = () => {
     const data = { username: username, password: password };
-    axios.post("http://localhost:3001/auth/login", data).then((response) => {
+    axios.post("http://localhost:6202/auth/login", data).then((response) => {
       if (response.data.error) {
         alert(response.data.error);
       } else {
@@ -23,6 +23,7 @@ function Login() {
           id: response.data.id,
           status: true,
         });
+        alert("Login bem-sucedido")
         history.push("/");
       }
     });

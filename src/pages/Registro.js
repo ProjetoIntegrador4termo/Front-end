@@ -11,6 +11,8 @@ function Registro() {
     username: "",
     password: "",
     confirmaSenha: "",
+    cpf: "",
+    tipo: "pai"
   };
 
   const validationSchema = Yup.object().shape({
@@ -26,10 +28,15 @@ function Registro() {
 
     confirmaSenha: Yup.string()
       .oneOf([Yup.ref("password"), null], "As senhas não são iguais"),
+
+    cpf: Yup.string() // Validar o CPF
+      .matches(/^\d{11}$/, "CPF inválido") // Adicione uma validação adequada para o formato do CPF
+      .required("O CPF é obrigatório"),
   });
 
   const onSubmit = (data) => {
-    axios.post("http://localhost:3001/auth", data).then(() => {
+    axios.post("http://localhost:6202/auth", data).then(() => {
+      alert("Cadastro concluído com sucesso")
       history.push("/login");
     });
   };
@@ -50,7 +57,6 @@ function Registro() {
                 className="form-field"
                 placeholder="Nome"
               />
-
               <ErrorMessage
                 component="span"
                 name="username"
@@ -64,7 +70,6 @@ function Registro() {
                 className="form-field"
                 placeholder="Senha"
               />
-
               <ErrorMessage
                 type="password"
                 component="span"
@@ -72,7 +77,6 @@ function Registro() {
                 className="form-error"
               />
             </div>
-
             <div className="login-form-group">
               <Field
                 type="password"
@@ -80,7 +84,6 @@ function Registro() {
                 className="form-field"
                 placeholder="Confirme sua senha"
               />
-
               <ErrorMessage
                 type="password"
                 component="span"
@@ -88,6 +91,27 @@ function Registro() {
                 className="form-error"
               />
             </div>
+            <div className="login-form-group">
+              <Field
+                name="cpf"
+                className="form-field"
+                placeholder="CPF"
+              />
+              <ErrorMessage
+                component="span"
+                name="cpf"
+                className="form-error"
+              />
+            </div>
+            <label htmlFor="tipo" className="form-label">
+              Tipo de Usuário:
+            </label>
+            <Field as="select" name="tipo" className="form-field">
+              <option value="pai">Pai</option>
+              <option value="professor">Professor</option>
+            </Field>
+            <ErrorMessage component="span" name="tipo" className="form-error" />
+
             <button className="button" type="submit">
               Cadastrar
             </button>

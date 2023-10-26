@@ -13,13 +13,14 @@ function Restriction() {
     const history = useHistory();
 
     const onSubmit = (data) => {
-        axios.post("http://localhost:3001/aluno", data, {
+        axios.post("http://localhost:6202/aluno", data, {
             headers: {
                 accessToken: localStorage.getItem("accessToken"),
             },
         })
             .then((response) => {
                 if (response.data.message === "Aluno criado com sucesso") {
+                    alert("Aluno cadastrado com sucesso")
                     history.push("/"); 
                 }
             })
@@ -31,7 +32,7 @@ function Restriction() {
     return (
         <div className="divContainer">
             <div className="container">
-                <h1 className="tituloLogin">Aluno</h1>
+                <h1 className="tituloLogin">Aluno(a)</h1>
                 <Formik
                     initialValues={initialValues}
                     onSubmit={onSubmit}
@@ -41,7 +42,7 @@ function Restriction() {
                             <Field
                                 name="name"
                                 className="form-field"
-                                placeholder="Nome"
+                                placeholder="Nome Completo"
                             />
 
                             <ErrorMessage
@@ -54,7 +55,7 @@ function Restriction() {
                             <Field
                                 name="restriction"
                                 className="form-field"
-                                placeholder="Restrição do aluno"
+                                placeholder="Restrições do aluno(a)"
                             />
 
                             <ErrorMessage
@@ -67,16 +68,19 @@ function Restriction() {
                         <div className="login-form-group">
                             <Field
                                 name="series"
+                                as="select"
                                 className="form-field"
-                                placeholder="Série do aluno"
-                            />
-
-                            <ErrorMessage
-                                component="span"
-                                name="series"
-                                className="form-error"
-                            />
+                            >
+                                <option className='selecionarSerie'>Selecione a série</option>
+                                <option value="1 Termo">1 Termo</option>
+                                <option value="2 Termo">2 Termo</option>
+                                <option value="3 Termo">3 Termo</option>
+                                <option value="4 Termo">4 Termo</option>
+                                <option value="5 Termo">5 Termo</option>
+                                <option value="6 Termo">6 Termo</option>
+                            </Field>
                         </div>
+
                         <button className="button" type="submit">
                             Cadastrar
                         </button>
