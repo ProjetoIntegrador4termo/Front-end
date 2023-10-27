@@ -36,7 +36,6 @@ function Registro() {
 
   const onSubmit = (data) => {
     axios.post("http://localhost:6202/auth", data).then(() => {
-      alert("Cadastro concluído com sucesso")
       history.push("/login");
     });
   };
@@ -107,7 +106,7 @@ function Registro() {
               Tipo de Usuário:
             </label>
             <Field as="select" name="tipo" className="form-field">
-              <option value="pai">Pai</option>
+              <option value="pai">Pais</option>
               <option value="professor">Professor</option>
             </Field>
             <ErrorMessage component="span" name="tipo" className="form-error" />

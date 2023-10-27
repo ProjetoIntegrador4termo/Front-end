@@ -1,14 +1,13 @@
 import "./App.css";
-import logo from "./imagens/logoNav.svg"
-import logoHome from "./imagens/icons8-casa.svg"
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import { AuthContext } from "./helpers/AuthContext";
 import { useState, useEffect } from "react";
 import axios from "axios";
 import { Link } from "react-router-dom/cjs/react-router-dom.min";
-import PageNotFound from "./pages/PagNotFound";
-import backgroundLogin from "./imagens/backgroundLogin.png"
 
+import fundoHome from "./imagens/icons8-casa.svg"
+import logoNav from "./imagens/logoNav.svg"
+import PageNotFound from "./pages/PagNotFound";
 import Registro from "./pages/Registro";
 import Login from "./pages/Login";
 import Restriction from "./pages/Restriction";
@@ -16,6 +15,7 @@ import Home from "./pages/Home"
 import AlunosList from "./pages/Alunos";
 
 function App() {
+
   const [authState, setAuthState] = useState({
     username: "",
     id: 0,
@@ -47,6 +47,7 @@ function App() {
     localStorage.removeItem("accessToken");
     setAuthState({ username: "", id: 0, status: false });
     window.location.reload();
+
   };
 
   return (
@@ -57,11 +58,11 @@ function App() {
             <div className="loggedInContainer">
               <Link to="/">
                 <img style={{ width: "5vw", height: "5vh" }}
-                  src={logoHome} />
+                  src={fundoHome} />
               </Link>
               <Link to="/">
                 <img style={{ width: "10vw", height: "10vh", marginRight: "3vw" }}
-                  src={logo} />
+                  src={logoNav} />
               </Link>
               {authState.status ? (
                 <button className="button_1" onClick={logout}>Logout</button>
