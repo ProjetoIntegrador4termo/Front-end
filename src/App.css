@@ -11,10 +11,23 @@ nav {
 
 }
 
+.icons {
+  display: flex;
+  align-items: center;
+
+}
+
+.icon {
+  width: 3vw;
+  height: 6vh;
+  margin-top: 6px;
+  padding-right: 10px;
+}
+
 .loggedInContainer {
   display: flex;
   height: 8vh;
-  justify-content: space-between;
+  justify-content:space-between;
   text-align: center;
   align-items: center;
   margin: 0 1vw;
@@ -65,6 +78,11 @@ nav {
   padding: 5px 10px;
   background-color: #0478D1;
   color: #fff;
+}
+
+.button_2 {
+  background-color: #B30F00;
+  margin-left: 3px;
 }
 
 .form-error {
@@ -158,6 +176,29 @@ nav {
   cursor: pointer;
 }
 
+.aluno-item {
+  list-style: none;
+  padding: 0;
+  border: 1px solid #ccc;
+  margin: 10px;
+  padding: 5px 10px;
+  background-color: #f9f9f9;
+  width: 50vw;
+}
+
+.aluno-item p {
+  font-size: 16px;
+  color: #666;
+}
+
+.aluno-item p.name {
+  font-size: 18px;
+  font-weight: bold;
+  color: #333;
+}
+
+
+
 /* Estilização do botão ao passar o mouse por cima */
 .input-container button:hover {
   background-color: #0056b3;
@@ -171,6 +212,9 @@ nav {
   background-color: #0056b3;
 }
 
+.button_2:hover {
+  background-color: #850C00;
+}
 .login-form-group select {
   padding: 10px;
   border: 1px solid #ccc;

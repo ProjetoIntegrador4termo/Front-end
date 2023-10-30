@@ -31,7 +31,7 @@ function Home() {
                     });
                 }
             });
-    }, []);
+    }, [authState]);
 
     return (
         <div className='homeColor'>

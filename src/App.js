@@ -6,6 +6,7 @@ import axios from "axios";
 import { Link } from "react-router-dom/cjs/react-router-dom.min";
 
 import fundoHome from "./imagens/icons8-casa.svg"
+import icone from "./imagens/icon.png"
 import logoNav from "./imagens/logoNav.svg"
 import PageNotFound from "./pages/PagNotFound";
 import Registro from "./pages/Registro";
@@ -13,6 +14,8 @@ import Login from "./pages/Login";
 import Restriction from "./pages/Restriction";
 import Home from "./pages/Home"
 import AlunosList from "./pages/Alunos";
+import EditarAluno from "./pages/EditarAluno";
+import AlunosPerfil from "./pages/Perfil";
 
 function App() {
 
@@ -56,21 +59,28 @@ function App() {
         <Router>
           <nav className="navbar">
             <div className="loggedInContainer">
-              <Link to="/">
+              <Link to="/"> 
                 <img style={{ width: "5vw", height: "5vh" }}
                   src={fundoHome} />
               </Link>
               <Link to="/">
-                <img style={{ width: "10vw", height: "10vh", marginRight: "3vw" }}
+                <img style={{ width: "10vw", height: "10vh", margin: "3vw" }}
                   src={logoNav} />
               </Link>
-              {authState.status ? (
-                <button className="button_1" onClick={logout}>Logout</button>
-              ) : (
-                <Link to="/login">
-                  <button className="button_1">Login</button>
-                </Link>
-              )}
+              <div className="icons">
+                {authState.status ? (
+                  <>
+                    <Link to="/perfil">
+                      <img className="icon" src={icone} />
+                    </Link>
+                    <button className="button_1" onClick={logout}>Logout</button>
+                  </>
+                ) : (
+                  <Link to="/login">
+                    <button className="button_1">Login</button>
+                  </Link>
+                )}
+              </div>
             </div>
           </nav>
           <Switch>
@@ -79,6 +89,8 @@ function App() {
             <Route path="/login" exact component={Login} />
             <Route path="/cadastro" exact component={Registro} />
             <Route path="/alunos" component={AlunosList} />
+            <Route path="/perfil" component={AlunosPerfil} />
+            <Route path="/editar-aluno/:id" component={EditarAluno} />
             <Route path="*" exact component={PageNotFound} />
           </Switch>
         </Router>

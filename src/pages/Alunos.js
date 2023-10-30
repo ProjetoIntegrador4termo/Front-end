@@ -24,30 +24,36 @@ function App() {
   return (
     <div className="Alunos">
       <div className="input-container">
-        <input
-          type="text"
-          placeholder="Digite a série"
+        <select
           value={serie}
           onChange={(e) => setSerie(e.target.value)}
-        />
+        >
+          <option value="">Selecione a série</option>
+          <option value="1 Termo">1 Termo</option>
+          <option value="2 Termo">2 Termo</option>
+          <option value="3 Termo">3 Termo</option>
+          <option value="4 Termo">4 Termo</option>
+          <option value="5 Termo">5 Termo</option>
+          <option value="6 Termo">6 Termo</option>
+          
+        </select>
         <button onClick={handleSearch}>Pesquisar</button>
       </div>
-
       <ul style={{ listStyle: "none", padding: 0 }}>
         {serie ? (
           alunosFiltrados.map((aluno) => (
-            <li key={aluno.id} style={{ border: "1px solid #ccc", margin: "10px", padding: "10px", backgroundColor: "#f9f9f9" }}>
-              <p style={{ fontSize: "18px", fontWeight: "bold", color: "#333" }}>Nome do Aluno: {aluno.name}</p>
-              <p style={{ fontSize: "16px", color: "#666" }}>Restrição: {aluno.restriction}</p>
-              <p style={{ fontSize: "16px", color: "#666" }}>Série: {aluno.series}</p>
+            <li key={aluno.id} className="aluno-item">
+              <p className="name">Nome do Aluno: {aluno.name}</p>
+              <p>Restrição: {aluno.restriction}</p>
+              <p>Série: {aluno.series}</p>
             </li>
           ))
         ) : (
           alunos.map((aluno) => (
-            <li key={aluno.id} style={{ border: "1px solid #ccc", margin: "10px", padding: "10px", backgroundColor: "#f9f9f9" }}>
-              <p style={{ fontSize: "18px", fontWeight: "bold", color: "#333" }}>Nome do Aluno: {aluno.name}</p>
-              <p style={{ fontSize: "16px", color: "#666" }}>Restrição: {aluno.restriction}</p>
-              <p style={{ fontSize: "16px", color: "#666" }}>Série: {aluno.series}</p>
+            <li key={aluno.id} className="aluno-item">
+              <p className="name">Nome do Aluno: {aluno.name}</p>
+              <p>Restrição: {aluno.restriction}</p>
+              <p>Série: {aluno.series}</p>
             </li>
           ))
         )}
