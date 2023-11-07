@@ -13,7 +13,7 @@ function Restriction() {
     const history = useHistory();
 
     const onSubmit = (data) => {
-        axios.post("http://localhost:6202/aluno", data, {
+        axios.post("https://api-inclued.onrender.com/aluno", data, {
             headers: {
                 accessToken: localStorage.getItem("accessToken"),
             },

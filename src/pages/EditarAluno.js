@@ -14,7 +14,7 @@ function EditAluno() {
     const [aluno, setAluno] = useState(null); 
 
     useEffect(() => {
-        axios.get(`http://localhost:6202/aluno/aluno/${id}`, { 
+        axios.get(`https://api-inclued.onrender.com/aluno/aluno/${id}`, { 
             headers: {
                 accessToken: localStorage.getItem("accessToken"),
             },
@@ -28,7 +28,7 @@ function EditAluno() {
     }, [id]);
 
     const onSubmit = (data) => {
-        axios.put(`http://localhost:6202/aluno/editar/${id}`, data, {
+        axios.put(`https://api-inclued.onrender.com/aluno/editar/${id}`, data, {
             headers: {
                 accessToken: localStorage.getItem("accessToken"),
             },

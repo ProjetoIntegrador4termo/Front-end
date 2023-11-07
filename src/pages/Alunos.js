@@ -12,7 +12,7 @@ function App() {
   }
 
   useEffect(() => {
-    axios.get("http://localhost:6202/aluno/alunos")
+    axios.get("https://api-inclued.onrender.com/aluno/alunos")
       .then((response) => {
         setAlunos(response.data.alunos);
       })

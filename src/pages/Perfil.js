@@ -7,7 +7,7 @@ function AlunosPerfil() {
 
   useEffect(() => {
     axios
-      .get("http://localhost:6202/aluno/cadastrados", {
+      .get("https://api-inclued.onrender.com/aluno/cadastrados", {
         headers: {
           accessToken: localStorage.getItem("accessToken"),
         },
@@ -22,7 +22,7 @@ function AlunosPerfil() {
 
   const handleExcluirAluno = (alunoId) => {
     axios
-      .delete(`http://localhost:6202/aluno/excluir/${alunoId}`, {
+      .delete(`https://api-inclued.onrender.com/aluno/excluir/${alunoId}`, {
         headers: {
           accessToken: localStorage.getItem("accessToken"),
         },

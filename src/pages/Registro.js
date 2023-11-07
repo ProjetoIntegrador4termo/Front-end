@@ -35,7 +35,7 @@ function Registro() {
   });
 
   const onSubmit = (data) => {
-    axios.post("http://localhost:6202/auth", data).then(() => {
+    axios.post("https://api-inclued.onrender.com/auth", data).then(() => {
       history.push("/login");
     });
   };

@@ -14,7 +14,7 @@ function Home() {
 
     useEffect(() => {
         axios
-            .get("http://localhost:6202/auth/auth", {
+            .get("https://api-inclued.onrender.com/auth/auth", {
                 headers: {
                     accessToken: localStorage.getItem("accessToken"),
                 },
